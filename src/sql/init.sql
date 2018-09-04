@@ -1,0 +1,4 @@
+DROP DATABASE Ingestion
+
+CREATE DATABASE Ingestion;
+GO
