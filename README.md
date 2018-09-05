@@ -8,7 +8,7 @@ in a local folder.
 # Prerequisites
 
 - Java 8
-- Maven
+- Maven (optional, docker can be used instead, see below)
 - Docker and docker-compose (for end-to-end test)
 
 # End-to-end test with MSSQL
@@ -39,8 +39,14 @@ The project is Maven based, running
 mvn clean package
 ```
 
-will build the project, including a runnable `jar` with all the required dependencies,
-namely `target/ingestion_example-1.0-SNAPSHOT-jar-with-dependencies.jar`
+Note: if you don't have `maven` installed, you can build inside a docker container like this:
+
+```
+docker run -it -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3-jdk-8 mvn clean install
+```
+
+Once built, the project produces a runnable `jar` with all the required dependencies
+in `target` folder, namely `target/ingestion_example-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
 # Run it
 
